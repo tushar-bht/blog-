@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog-ME</title>
+    <%-include("partials/header");-%>
+  </head>
+  <body>
+    <h1 class="heading m-4">
+      Home
+    </h1>
+<% for(var i=0;i<message.length;i++){%>
+  <div class="content">  <div class="main"><h4><%=message[i].title%></h4>
+    <p><%=message[i].story%></p></div>
+    <span><a name="apple" href="/post/<%=message[i]._id%>">read more</a></span>
+  </div>
+
+<%}%>
+  </body>
+</html>

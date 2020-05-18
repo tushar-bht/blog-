@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>compose</title>
+    <%-include("partials/header")-%>
+  </head>
+  <body>
+    <h1 class="heading m-4">Compose</h1>
+    <form class="m-4" method="post" action="/compose">
+      <input
+        type="text"
+        placeholder="title"
+        name="title"
+        style="width: 90%; height: 2rem;"
+      /><br /><br />
+      <textarea
+        placeholder="express your self"
+        style="min-height: 20rem; min-width: 90%;"
+        name="story"
+      ></textarea>
+      <input type="submit" class="btn btn-success" value="Publish" />
+    </form>
+  </body>
+</html>
