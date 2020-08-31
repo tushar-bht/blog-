@@ -12,12 +12,17 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+//working with database...............
+const schema = mongoose.Schema({
+  title: { type: String },
+  story: { type: String },
+});
+//table created...............
+const blogPost = mongoose.model("blogPost", schema);
 
 const title = "Welcome message";
-const home =
-  "Hey friend welcome you are gladly welcome here , by comming here you proved that you are a gem ,you just need to be pollished. And leave this small work on me";
 const about =
-  "Hello friends ,I am glad to have you here.I will soon be uploading my thoughts here and trust me i think a lot......You can say a minimum to 10 hours a day";
+  "Hey ! nothing important to know about me.Just grap a coffee and do the thing";
 app.get("/", function (req, res) {
   blogPost.find(function (err, data) {
     if (err) console.log(data);
@@ -49,6 +54,7 @@ app.get("/post/:pageId", function (req, res) {
     else res.render("post", { title: data.title, story: data.story });
   });
 });
+//welcomeMessage.save();
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
@@ -56,15 +62,3 @@ if (port == null || port == "") {
 app.listen(port, function () {
   console.log("server started at port 3000");
 });
-//working with database...............
-const schema = mongoose.Schema({
-  title: { type: String },
-  story: { type: String },
-});
-//table created...............
-const blogPost = mongoose.model("blogPost", schema);
-const welcomeMessage = new blogPost({
-  title: title,
-  story: home,
-});
-//welcomeMessage.save();
