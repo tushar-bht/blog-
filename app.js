@@ -33,7 +33,7 @@ app.get("/Contact", function (req, res) {
   res.render("contact", { contactcontent: about });
 });
 app.get("/About", function (req, res) {
-  res.render("About", { aboutcontent: about });
+  res.render("about", { aboutcontent: about });
 });
 app.get("/compose", function (req, res) {
   res.render("compose");
